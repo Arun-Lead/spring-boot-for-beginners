@@ -6,25 +6,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class StudentService {
+public interface StudentService {
 
-    public List<Student> findAllStudents(){
-        return List.of(
-                new Student(
-                        "Ali",
-                        "AMST",
-                        LocalDate.now(),
-                        "contact@aliamstcoding.com",
-                        34
-                ),
-                new Student(
-                        "Arun",
-                        "AMST",
-                        LocalDate.now(),
-                        "contact@aliamstcoding.com",
-                        28
-                )
-        );
-    } 
+     Student save(Student s);
 
+     List<Student> findAllStudents();
+
+     Student findByEmail(String email);
+
+     Student update(Student s);
+
+     void delete(String email);
 }
